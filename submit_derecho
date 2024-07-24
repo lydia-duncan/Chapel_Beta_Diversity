@@ -1,0 +1,21 @@
+#!/bin/bash
+
+### Job Name
+#PBS -N chapel_habitat
+
+### Project code
+#PBS -A NCGD0011
+##PBS -A P93300012
+#PBS -l walltime=01:00:00
+#PBS -q main
+
+### Merge output and error files
+#PBS -j oe
+#PBS -k eod
+
+### Select 1 nodes with 128 CPUs each
+#PBS -l select=2:ncpus=128
+
+### Run the executable
+source ~/.chapel_batch_derecho
+./main_2.0 -nl 2 --in_name=Utila --map_type=geomorphic --window_size=12732

@@ -1,0 +1,34 @@
+
+1 Ha   = 10000 m   = 12732
+2 Ha   = 20000 m   = 25464
+3 Ha   = 30000 m   = 38196
+4 Ha   = 40000 m   = 50928
+5 Ha   = 50000 m   = 63662
+6 Ha   = 60000 m   = 76392
+7 Ha   = 70000 m   = 89124
+8 Ha   = 80000 m   = 101856
+9 Ha   = 90000 m   = 114588
+10 Ha  = 100000 m  = 127324
+25 Ha  = 250000 m  = 318350
+50 Ha  = 500000 m  = 636620
+75 Ha  = 750000 m  = 954930
+100 Ha = 1000000 m = 1273240
+150 Ha = 1500000 m = 1909860
+
+For Morven: desired window size ---> actual size in the program
+2827    ---> 3600 m^2
+11309   ---> 14400 m^2
+31415   ---> 40000 m^2
+
+To run, do
+
+./main_2.0 -nl 2 --in_name=Utila --map_type=geomorphic --window_size=12732
+config const in_name : string
+config const map_type : string
+config const window_size : real(32)
+
+file (image_name) = COLS x ROWS
+
+
+ON DERECHO:
+chpl main_2.0.chpl -lnetcdf -L/opt/cray/pe/netcdf/4.9.0.7/gnu/9.1/lib -I/opt/cray/pe/netcdf/4.9.0.7/gnu/9.1/include --ldflags="-Wl,-rpath,/opt/cray/pe/netcdf/4.9.0.7/gnu/9.1/lib" --fast
