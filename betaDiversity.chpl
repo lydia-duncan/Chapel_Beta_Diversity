@@ -9,13 +9,6 @@ use LinearAlgebra;
 use IO.FormattedIO;
 use Math;
 
-/* Command line arguments. */
-config const in_name : string;
-config const map_type : string;
-config const window_size : real(32);
-config const dx : real(32) = 5.0;
-
-
 proc convolve_and_calculate(Image: [] int(8), centerPoints : ?, LeftMaskDomain : ?, CenterMaskDomain : ?, RightMaskDomain : ?, dissimilarity : [] real(32), ref Output: [] real(32), d_size : int, Mask_Size : int,  t: stopwatch) : [] {
 
   // This 'eps' makes sure that we differentiate between land points (zero) and ocean points (nonzero), even
@@ -113,7 +106,8 @@ proc convolve_and_calculate(Image: [] int(8), centerPoints : ?, LeftMaskDomain :
 }
 
 
-proc main(args: [] string) {
+export proc beta_diversity(in in_name: string, in map_type: string,
+                           window_size: real, dx: real = 5.0): string {
 
   var t : stopwatch;
   t.start();
@@ -215,5 +209,6 @@ proc main(args: [] string) {
 
   writeln("Elapsed time to write NetCDF: ", t.elapsed(), " seconds.");
 
+  return out_file;
 }
 
