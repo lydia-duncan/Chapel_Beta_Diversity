@@ -5,9 +5,6 @@ build-backend = "setuptools.build_meta"
 [project]
 name = 'chapel-beta-diversity'
 version = '0.0.1'
-dependencies = [
-             "netcdf",
-]
 # TODO: description (short)
 # TODO: license
 readme = 'README'
