@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools", "cython", "numpy"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = 'chapel-beta-diversity'
+version = '0.0.1'
+dependencies = [
+             "netcdf",
+]
+# TODO: description (short)
+# TODO: license
+readme = 'README'
+classifiers = [
+        'Development Status :: 3 - Alpha',
+        'Environment :: Console',
+        'Operating System :: MacOS',
+        'Operating System :: POSIX',
+        'Operating System :: Unix',
+        'Intended Audience :: Science/Research',
+        'Programming Language :: Other', # TODO: get a Chapel classifier
+        'Topic :: Scientific/Engineering',
+        'Topic :: Scientific/Engineering :: Oceanography',
+]
+[[authors]]
+Author = "Scott Bachman"
+# TODO Author-email instead of author (see https://packaging.python.org/en/latest/specifications/pyproject-toml/#authors-maintainers)
+[[urls]]
+url = 'https://github.com/sdbachman/Chapel_Beta_Diversity'
+download-url = 'https://pypi.python.org/pypi/chapel-beta-diversity'
+
+[tool.setuptools]
+include-package-data = true
