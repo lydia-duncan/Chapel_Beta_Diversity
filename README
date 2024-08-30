@@ -22,13 +22,18 @@ For Morven: desired window size ---> actual size in the program
 
 To run, do
 
-./main_2.0 -nl 2 --in_name=Utila --map_type=geomorphic --window_size=12732
-config const in_name : string
-config const map_type : string
-config const window_size : real(32)
+PYTHONPATH=lib/ python3 test_python_file.py
+
+Adjust the arguments to beta_diversity in test_python_file.py as you see fit:
+in_name : string
+map_type : string
+window_size : real(32)
 
 file (image_name) = COLS x ROWS
 
 
 ON DERECHO:
-chpl main_2.0.chpl -lnetcdf -L/opt/cray/pe/netcdf/4.9.0.7/gnu/9.1/lib -I/opt/cray/pe/netcdf/4.9.0.7/gnu/9.1/include --ldflags="-Wl,-rpath,/opt/cray/pe/netcdf/4.9.0.7/gnu/9.1/lib" --fast
+chpl betaDiversity.chpl -lnetcdf -L/opt/cray/pe/netcdf/4.9.0.7/gnu/9.1/lib -I/opt/cray/pe/netcdf/4.9.0.7/gnu/9.1/include --ldflags="-Wl,-rpath,/opt/cray/pe/netcdf/4.9.0.7/gnu/9.1/lib" --fast --library --library-python --library-dir=lib
+
+Ensure CHPL_LIB_PIC=pic and that the Chapel compiler has been compiled with this
+setting
