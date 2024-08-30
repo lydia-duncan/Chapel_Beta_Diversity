@@ -27,6 +27,7 @@ jobs:
 
     - name: Test package
       run: |
+        apt install netcdf
         python3 -m pip install -e .
         python3 test_python_file.py
 
@@ -47,7 +48,6 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install setuptools
         python -m pip install build
-        apt install netcdf
 
     - name: Build package
       run: |
