@@ -27,7 +27,7 @@ jobs:
 
     - name: Test package
       run: |
-        sudo apt-get install netcdf
+        sudo apt-get install libnetcdf-dev
         python3 -m pip install -e .
         python3 test_python_file.py
 
