@@ -4,7 +4,7 @@ from setuptools import setup
 
 os.environ["CHPL_LIB_PIC"] = "pic"
 
-subprocess.run("git", "clone", "https://github.com/chapel-lang/chapel.git")
+subprocess.run(["git", "clone", "https://github.com/chapel-lang/chapel.git"])
 os.chdir("chapel")
 subprocess.run("./configure")
 subprocess.run("make")
