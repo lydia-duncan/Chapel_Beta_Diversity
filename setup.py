@@ -3,6 +3,7 @@ import subprocess
 from setuptools import setup
 
 os.environ["CHPL_LIB_PIC"] = "pic"
+os.environ["CHPL_LLVM"] = "none"
 
 subprocess.run(["git", "clone", "https://github.com/chapel-lang/chapel.git"])
 os.chdir("chapel")
