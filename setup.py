@@ -1,4 +1,4 @@
-import os
+import os, os.path
 import subprocess
 from setuptools import setup
 
