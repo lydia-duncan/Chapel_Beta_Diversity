@@ -11,8 +11,12 @@ subprocess.run("./configure")
 subprocess.run("make")
 subprocess.run("make install")
 
+print("Finished installing Chapel")
+
 os.chdir("..")
 
 subprocess.run("chpl betaDiversity.chpl -lnetcdf --fast --library --library-python --library-dir=chapel-beta-diversity", shell=True)
+
+print("Finished building the python library")
 
 setup()
