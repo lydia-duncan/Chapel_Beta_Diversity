@@ -9,7 +9,7 @@ subprocess.run(["git", "clone", "https://github.com/chapel-lang/chapel.git"])
 os.chdir("chapel")
 subprocess.run("./configure")
 subprocess.run("make")
-subprocess.run("make install")
+subprocess.run(["make", "install"])
 
 print("Finished installing Chapel")
 
