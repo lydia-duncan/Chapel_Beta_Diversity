@@ -5,15 +5,17 @@ from setuptools import setup
 os.environ["CHPL_LIB_PIC"] = "pic"
 os.environ["CHPL_LLVM"] = "none"
 
-subprocess.run(["git", "clone", "https://github.com/chapel-lang/chapel.git"])
-os.chdir("chapel")
-subprocess.run("./configure")
-subprocess.run("make")
-subprocess.run(["make", "install"])
+# only install Chapel once
+if not os.path.exists("${PWD}/chapel"):
+  subprocess.run(["git", "clone", "https://github.com/chapel-lang/chapel.git"])
+  os.chdir("chapel")
+  subprocess.run("./configure")
+  subprocess.run("make")
+  subprocess.run(["make", "install"])
 
-print("Finished installing Chapel")
+  print("Finished installing Chapel")
 
-os.chdir("..")
+  os.chdir("..")
 
 subprocess.run("chpl betaDiversity.chpl -lnetcdf --fast --library --library-python --library-dir=chapel-beta-diversity", shell=True)
 
