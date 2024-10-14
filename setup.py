@@ -1,6 +1,6 @@
 import os, os.path
 import subprocess
-from setuptools import setup
+from setuptools import setup, find_packages
 
 os.environ["CHPL_LIB_PIC"] = "pic"
 os.environ["CHPL_LLVM"] = "none"
@@ -9,8 +9,12 @@ os.environ["CHPL_LLVM"] = "none"
 if not os.path.exists("${PWD}/chapel"):
   subprocess.run(["git", "clone", "https://github.com/chapel-lang/chapel.git"])
   os.chdir("chapel")
-  subprocess.run("./configure")
-  subprocess.run("make")
+  subprocess.run(["./configure", "--prefix=~/"])
+
+  # make it run faster so I don't have to task switch
+  numProcs = subprocess.run("./util/buildRelease/chpl-make-cpu_count",
+                            capture_output=True, text=True).stdout.strip()
+  subprocess.run(["make", "-j" + numProcs])
   subprocess.run(["make", "install"])
 
   print("Finished installing Chapel")
@@ -21,4 +25,4 @@ subprocess.run("chpl betaDiversity.chpl -lnetcdf --fast --library --library-pyth
 
 print("Finished building the python library")
 
-setup()
+setup(packages=find_packages(exclude=["chapel/test"])
