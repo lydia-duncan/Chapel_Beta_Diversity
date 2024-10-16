@@ -3,7 +3,7 @@ requires = ["setuptools", "cython", "numpy"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = 'chapel-beta-diversity'
+name = 'chapel_beta_diversity'
 version = '0.0.1'
 # TODO: description (short)
 # TODO: license
@@ -24,7 +24,7 @@ Author = "Scott Bachman"
 # TODO Author-email instead of author (see https://packaging.python.org/en/latest/specifications/pyproject-toml/#authors-maintainers)
 [[urls]]
 url = 'https://github.com/sdbachman/Chapel_Beta_Diversity'
-download-url = 'https://pypi.python.org/pypi/chapel-beta-diversity'
+download-url = 'https://pypi.python.org/pypi/chapel_beta_diversity'
 
 [tool.setuptools]
 include-package-data = true
