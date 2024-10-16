@@ -21,7 +21,7 @@ if not os.path.exists("${PWD}/chapel"):
 
   os.chdir("..")
 
-subprocess.run("chpl betaDiversity.chpl -lnetcdf --fast --library --library-python --library-dir=chapel-beta-diversity", shell=True)
+subprocess.run("chpl betaDiversity.chpl -lnetcdf --fast --library --library-python --library-dir=chapelBetaDiversity", shell=True)
 
 print("Finished building the python library")
 
