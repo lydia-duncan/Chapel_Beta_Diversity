@@ -1,11 +1,29 @@
-import os
+import os, os.path
 import subprocess
-from setuptools import setup
+from setuptools import setup, find_packages
 
 os.environ["CHPL_LIB_PIC"] = "pic"
-# TODO: install Chapel
-# install netcdf?
+os.environ["CHPL_LLVM"] = "none"
+
+# only install Chapel once
+if not os.path.exists("${PWD}/chapel"):
+    subprocess.run(["git", "clone",
+                    "https://github.com/chapel-lang/chapel.git"])
+    os.chdir("chapel")
+    subprocess.run(["./configure", "--prefix=~/"])
+
+    # make it run faster so I don't have to task switch
+    numProcs = subprocess.run("./util/buildRelease/chpl-make-cpu_count",
+                              capture_output=True, text=True).stdout.strip()
+    subprocess.run(["make", "-j"+numProcs])
+    subprocess.run(["make", "install"])
+
+    print("Finished installing Chapel")
+
+    os.chdir("..")
 
 subprocess.run("chpl betaDiversity.chpl -lnetcdf --fast --library --library-python --library-dir=chapel-beta-diversity", shell=True)
 
-setup()
+print("Finished building the python library")
+
+setup(packages=find_packages(exclude=["chapel/test"]))
