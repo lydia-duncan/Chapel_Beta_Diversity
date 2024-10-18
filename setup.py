@@ -9,7 +9,7 @@ os.environ["CHPL_LLVM"] = "none"
 if not os.path.exists("${PWD}/chapel"):
   subprocess.run(["git", "clone", "https://github.com/chapel-lang/chapel.git"])
   os.chdir("chapel")
-  subprocess.run(["./configure", "--prefix=" + os.path.realpath(os.pardir)])
+  subprocess.run(["./configure", "--prefix=/usr/local"])
 
   # make it run faster so I don't have to task switch
   numProcs = subprocess.run("./util/buildRelease/chpl-make-cpu_count",
