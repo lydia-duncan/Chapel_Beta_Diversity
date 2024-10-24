@@ -32,7 +32,7 @@ jobs:
         python -m pip install setuptools
         python -m pip install build
         python -m pip install -r requirements.txt
-        export PATH=./:$PATH
+        export PATH=/home/runner/work/Chapel_Beta_Diversity/Chapel_Beta_Diversity/bin/:$PATH
 
     - name: Build package
       run: |
