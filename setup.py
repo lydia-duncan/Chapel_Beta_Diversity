@@ -5,8 +5,9 @@ from setuptools import setup, find_packages
 os.environ["CHPL_LIB_PIC"] = "pic"
 os.environ["CHPL_LLVM"] = "none"
 
+p = subprocess.run(["which", "chpl"])
 # only install Chapel once
-if not os.path.exists("${PWD}/chapel"):
+if p.returncode == 1:
   subprocess.run(["git", "clone", "https://github.com/chapel-lang/chapel.git"])
   os.chdir("chapel")
   subprocess.run(["./configure", "--prefix=" + os.path.dirname(os.path.realpath(__file__))])
