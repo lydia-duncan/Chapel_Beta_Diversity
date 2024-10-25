@@ -17,6 +17,10 @@ if not os.path.exists("${PWD}/chapel"):
   subprocess.run(["make", "-j" + numProcs])
   subprocess.run(["make", "install"])
 
+  # sanity check printing
+  subprocess.run(["echo", "$PATH"])
+  subprocess.run(["ls", os.path.dirname(os.path.realpath(__file__))])
+
   print("Finished installing Chapel")
 
   os.chdir("..")
