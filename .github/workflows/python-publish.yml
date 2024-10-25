@@ -53,6 +53,7 @@ jobs:
     - name: Test package
       run: |
         python3 -m pip install -e .
+        python3 -c "help('modules')"
         python3 test_python_file.py
 
   deploy:
