@@ -31,10 +31,13 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install setuptools
         python -m pip install build
+        python -m pip install -r requirements.txt
 
     - name: Build package
       run: |
+        export PATH=/home/runner/work/Chapel_Beta_Diversity/Chapel_Beta_Diversity/bin/:$PATH
         python3 -m build
+        python3 -m pip install -e .
 
   test:
     runs-on: ubuntu-latest
@@ -48,7 +51,6 @@ jobs:
 
     - name: Test package
       run: |
-        python3 -m pip install -e .
         python3 test_python_file.py
 
   deploy:
