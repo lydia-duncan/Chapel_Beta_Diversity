@@ -1,5 +1,7 @@
 *~
 lib/*
 chapel-beta-diversity/*
+chapelBetaDiversity/*
+chapelBetaDiversity.egg-info/*
 chapel_beta_diversity.egg-info/*
 dist/*
