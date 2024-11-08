@@ -1,4 +1,4 @@
-import chapelBetaDiversity.betaDiversity
+import chapelBetaDiversity.betaDiversity as betaDiversity
 
 betaDiversity.chpl_setup()
 
