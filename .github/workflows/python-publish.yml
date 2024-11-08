@@ -40,27 +40,13 @@ jobs:
         python3 -m pip install -e .
         python3 -c "help('modules')"
         
-  test:
-    needs: build
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-
     - name: Test package
       run: |
-        python3 -c "help('modules')"
-        python3 -m pip install -e .
         python3 -c "help('modules')"
         python3 test_python_file.py
 
   deploy:
-    needs: test
+    needs: build
 
     runs-on: ubuntu-latest
 
