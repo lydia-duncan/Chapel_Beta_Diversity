@@ -28,3 +28,6 @@ download-url = 'https://pypi.python.org/pypi/chapelBetaDiversity'
 
 [tool.setuptools]
 include-package-data = true
+
+[tools.setuptools.packages.find]
+include = ["lib*", "chapelBetaDiversity*"]
