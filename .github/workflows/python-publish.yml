@@ -16,6 +16,9 @@ on:
 
 jobs:
   build:
+    permissions:
+      id-token: write
+
     runs-on: ubuntu-latest
 
     steps:
@@ -44,22 +47,6 @@ jobs:
       run: |
         python3 -c "help('modules')"
         python3 test_python_file.py
-
-  deploy:
-    needs: build
-
-    permissions:
-      id-token: write
-
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
 
     - name: Publish to PyPI
       if: ${{ github.event.inputs.repository == 'PYPI' || github.event.inputs.repository == '' }}
