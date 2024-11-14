@@ -38,19 +38,11 @@ jobs:
         export PATH=/home/runner/work/Chapel_Beta_Diversity/Chapel_Beta_Diversity/bin/:$PATH
         python3 -m build
         python3 -m pip install -e .
-
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
+        python3 -c "help('modules')"
 
     - name: Test package
       run: |
+        python3 -c "help('modules')"
         python3 test_python_file.py
 
   deploy:

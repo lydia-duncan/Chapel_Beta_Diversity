@@ -31,4 +31,8 @@ subprocess.run("chpl betaDiversity.chpl -lnetcdf --fast --library --library-pyth
 
 print("Finished building the python library")
 
-setup(packages=find_packages(exclude=["chapel/test"]))
+# sanity check to see the state of the directory after the majority of this
+# script
+subprocess.run("ls")
+
+setup()
