@@ -48,17 +48,17 @@ jobs:
         python3 -c "help('modules')"
         python3 test_python_file.py
 
-    - name: Publish to PyPI
-      if: ${{ github.event.inputs.repository == 'PYPI' || github.event.inputs.repository == '' }}
-      uses: pypa/gh-action-pypi-publish@release/v1
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
-
-    - name: Publish to test PyPI
-      if: ${{ github.event.inputs.repository == 'TEST_PYPI' }}
-      uses: pypa/gh-action-pypi-publish@release/v1
-      with:
-        user: __token__
-        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-        repository_url: https://test.pypi.org/legacy/
+#    - name: Publish to PyPI
+#      if: ${{ github.event.inputs.repository == 'PYPI' || github.event.inputs.repository == '' }}
+#      uses: pypa/gh-action-pypi-publish@release/v1
+#      with:
+#        user: __token__
+#        password: ${{ secrets.PYPI_API_TOKEN }}
+#
+#    - name: Publish to test PyPI
+#      if: ${{ github.event.inputs.repository == 'TEST_PYPI' }}
+#      uses: pypa/gh-action-pypi-publish@release/v1
+#      with:
+#        user: __token__
+#        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+#        repository_url: https://test.pypi.org/legacy/
