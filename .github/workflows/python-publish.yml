@@ -46,6 +46,7 @@ jobs:
     - name: Test package
       run: |
         python3 -c "help('modules')"
+        ls chapelBetaDiversity/
         python3 test_python_file.py
 
 #    - name: Publish to PyPI
