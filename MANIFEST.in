@@ -1,1 +1,3 @@
 include README
+global-include *.pyx
+global-include *.pxd
