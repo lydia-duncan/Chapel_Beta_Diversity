@@ -20,6 +20,7 @@ classifiers = [
         'Topic :: Scientific/Engineering :: Oceanography',
 ]
 dependencies = [
+        "setuptools",
         "cython",
         "numpy",
 ]
